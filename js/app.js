@@ -11,7 +11,7 @@ let pedido ={
     id: undefined
 };
 
-const div = document.querySelector('#novo-pedido');
+const div = document.querySelector('.resultado');
 
 let pessoa = {nome: '', celular:'', rua: '', numero: '', complemento:'', bairro:'', pontoReferencia: ''}
 
@@ -222,8 +222,9 @@ function escreverNaTela(){
     criandoHtml(`Complemento: ${pessoa.complemento} | Bairro: ${pessoa.bairro}  |  Ponto de referência: ${pessoa.pontoReferencia}`, 'paragrafo2');     
     criandoHtml(`Forma de Pagamento: ${pedido.pagamento.descricao}`, 'paragrafo2');
     criandoHtml(`Troco: ${aplicarMascaraParaRealComPrefixo(pedido.pagamento.troco)}`, 'paragrafo2');    
-    criandoHtml(`Sr(a). ${pessoa.nome.toUpperCase()}, agradecemos pela preferência! O prazo de entrega é de 90 minutos.`, 'paragrafo1');
+    criandoHtml(`Sr(a). ${pessoa.nome.toUpperCase()}, a WEB PIZZAS agradece pela preferência! O prazo de entrega é de 90 minutos.`, 'paragrafo1');
    
+    div.style.border = 'solid white';
 
 }
 

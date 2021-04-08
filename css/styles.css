@@ -1,18 +1,51 @@
 body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    text-align: center;     
+    color: #f7f3e9;
+    background-image: url('../img/pizza5.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 10%;
+    margin-left: 52%;
+    
+    
+}
+div h1{
+    font-family: 'Noto Sans JP', sans-serif;
+    margin-top: 20%;
+    font-size: 55px;
+    font-style: italic;
+}
+
+#novo-pedido button{
+    border-radius: 10px;
+    padding: 15px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.resultado{
+    margin-top: 20px;
+    padding: 15px;
+    margin-right: 20px;
+    border-radius: 15px;
+    
 }
 p{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;    
+    font-family: Verdana, Gene  va, Tahoma, sans-serif;
+    text-align: left;
+      
 }
 
 .paragrafo1{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
     margin-bottom: 25px;
+    text-align: center;
 }
 
-.paragrafo2{    
-    font-size: 15px;
+.paragrafo2{
+       
+    font-size: 20px;
 }
