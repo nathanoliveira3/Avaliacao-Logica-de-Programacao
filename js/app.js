@@ -5,7 +5,10 @@ let pedido ={
     sabor: [],
     bebida: undefined,
     entrega: undefined,
-    dadosCliente: undefined
+    valorTotal: undefined,
+    dadosCliente: undefined,
+    pagamento: undefined,
+    id: undefined
 };
 
 let pessoa = {nome: '', celular:'', rua: '', numero: '', complemento:'', bairro:'', pontoReferencia: ''}
@@ -19,6 +22,8 @@ escolherSegundoSabor();
 escolherBebida();
 escolhaEntrega();
 confirmarPedido();
+
+
 
 function escolherTamanho() {    
 
@@ -74,8 +79,8 @@ function escolherSabor() {
 //REVISAR
 function escolherSegundoSabor(){
    
-    let escolha2 = prompt('Deseja escolher mais um sabor? sim ou não').toLowerCase()
-    if (escolha2 == 'sim' && contador < 2) {
+    let escolha2 = prompt('Deseja escolher mais um sabor?\n 1 - SIM\n 2 - NÃO').toLowerCase()
+    if (escolha2 == '1' && contador < 2) {
         contador++;  
         escolherSabor();                   
     }
@@ -118,12 +123,15 @@ function escolhaEntrega(){
 }
 
 function confirmarPedido(){
-    let total = pedido.tamanho.preco + pedido.borda.preco + pedido.bebida.preco + pedido.entrega.preco;
-    alert(`O valor do seu pedido foi ${aplicarMascaraParaRealComPrefixo(total)}`)
+    pedido.valorTotal = pedido.tamanho.preco + pedido.borda.preco + pedido.bebida.preco + pedido.entrega.preco;
+    alert(`O valor do seu pedido foi ${aplicarMascaraParaRealComPrefixo(pedido.valorTotal)}`)
     let escolha = prompt('Deseja confirmar o pedido? \n1 - SIM \n2 - NÃO')
     switch (escolha) {
         case '1':
             dadosCliente();
+            formaPagamento();
+            criarNumeroPedido();
+            alertaTempoEntrega();
             break;
         case '2':
             pedido ={
@@ -142,6 +150,7 @@ function confirmarPedido(){
     }
 }
 
+
 function aplicarMascaraParaRealComPrefixo(valor) {
     if (isNaN(valor))
         return 0;
@@ -158,5 +167,37 @@ function dadosCliente(){
     pessoa.pontoReferencia = prompt('Digite um ponto de referência');
 
     pedido.dadosCliente = pessoa;
-    
 }
+
+function formaPagamento(){
+    let escolha = prompt('Escolha a forma de pagamento:\n 1- Cartão de Crédito \n 2- Cartão de Débito \n 3- PIX\n 4- PicPay\n 5- Dinheiro')
+    switch(escolha){
+        case '1': pedido.pagamento = 'Cartão de Crédito'; break;
+        case '2': pedido.pagamento = 'Cartão de Débito'; break;
+        case '3': pedido.pagamento = 'PIX'; break;
+        case '4': pedido.pagamento = 'PicPay'; break;
+        case '5': pedido.pagamento = 'Dinheiro';
+            let troco = prompt('Você precisa de troco?\n 1- SIM\n 2- NÃO');
+            if(troco == '1'){                
+                let valor = parseInt(prompt('Para qual valor você precisa de troco?'));     
+                let valorTroco = valor - pedido.valorTotal;
+                pedido.pagamento = {descricao: 'Dinheiro', troco: valorTroco};   
+                break;           
+            } else{
+                break;
+            }        
+        default:
+            alert("Essa opção não é válida.");
+            formaPagamento();
+    }
+}
+
+function criarNumeroPedido(){
+    pedido.id = (Math.random() * 1000).toFixed(0);
+}
+
+function alertaTempoEntrega(){
+    alert(`Sr(a). ${pessoa.nome}, agradecemos pela preferência! O número do seu pedido é: ${pedido.id}. O prazo de entrega é de 90 minutos.`)
+}
+
+
