@@ -4,13 +4,11 @@ let pedido ={
     borda: undefined,
     sabor: [],
     bebida: undefined,
-    entrega: undefined
-}
-const tamanho = { preco: 0, descricao: 0 };
-const borda = { preco: 0, descricao: 0 };
-//const sabor = [];
-const bebida = { preco: 0, descricao: 0 };
-const entrega = { preco: 0, descricao: 0 };
+    entrega: undefined,
+    dadosCliente: undefined
+};
+
+let pessoa = {nome: '', celular:'', rua: '', numero: '', complemento:'', bairro:'', pontoReferencia: ''}
 
 var contador = 0;
 
@@ -125,10 +123,16 @@ function confirmarPedido(){
     let escolha = prompt('Deseja confirmar o pedido? \n1 - SIM \n2 - NÃO')
     switch (escolha) {
         case '1':
-            
+            dadosCliente();
             break;
         case '2':
-            pedido = [];
+            pedido ={
+                tamanho: undefined,
+                borda: undefined,
+                sabor: [],
+                bebida: undefined,
+                entrega: undefined
+            };
             document.write(`<h1>Você pode reiniciar o seu pedido a qualquer momento.</h1>`)
             break;
         
@@ -144,3 +148,15 @@ function aplicarMascaraParaRealComPrefixo(valor) {
     return Number(valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 }
 
+function dadosCliente(){
+    pessoa.nome = prompt('Digite seu nome');
+    pessoa.celular = parseInt(prompt('Digite o número do seu celular'));
+    pessoa.rua = prompt('Digite sua rua');
+    pessoa.numero = parseInt(prompt('Digite o número'));
+    pessoa.complemento = prompt('Digite o complemento');
+    pessoa.bairro = prompt('Digite seu bairro');
+    pessoa.pontoReferencia = prompt('Digite um ponto de referência');
+
+    pedido.dadosCliente = pessoa;
+    
+}
