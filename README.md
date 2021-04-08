@@ -7,7 +7,7 @@ Grupo:
 - Murillo Henrique Marinho da Silva
 - Nathan Souza de Oliveira
 
-Objetivo: Criar um sistema para efetuar pedidos em Pizzaria.
+Objetivo: Criar um sistema para efetuar pedidos em uma pizzaria.
 
 Devido a pandemia e algumas descobertas em sua vida, o professor está largando a vida de Desenvolvedor e vai ser Dono de Pizzaria, com isso ele precisa de um sistema para que o usuário consiga fazer pedidos de forma simples e intuitiva sem sair de sua casa.
 

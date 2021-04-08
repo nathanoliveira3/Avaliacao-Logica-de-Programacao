@@ -1,0 +1,18 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;    
+}
+
+.paragrafo1{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.paragrafo2{    
+    font-size: 15px;
+}
