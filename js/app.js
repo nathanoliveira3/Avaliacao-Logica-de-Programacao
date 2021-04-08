@@ -1,4 +1,5 @@
 const pedido = [];
+const sabor = { saborPizza: [] }
 var contador = 0;
 
 escolherTamanho();
@@ -89,58 +90,70 @@ function escolherBorda() {
 }
 
 function escolherSabor() {
-    const sabor = { saborPizza: [] }
+   
 
     let escolha1 = prompt('Escolha o sabor da pizza:\n1 - Calabresa (Mussarela, Calabresa e cebola) \n2 - 4 Queijos (Mussarela, Cheddar, Parmesão e Prato) \n3 - Frango com Catupiry (Mussarela, Frango e Catupiry)  \n4 - Portuguesa (Mussarela, Pimentão, Cebola, Presunto, Ovo, Cebola) \n5 - Camarão (Mussarela, Camarão, Salsinha e Cebolinha) \n6 - Carne seca (Mussarela, Carne seca e Cream cheese) \n7 - Lombo Canadense (Mussarela, Lombo Canadense, Tomate, Orégano, Cebola) \n8 - X-Fritas (Mussarela, Contra-filé, Presunto, Bacon, Ovo, Tomate, Cebola, Batata');
-            
-        switch (escolha1) {
-            case '1':
-                sabor.saborPizza.push('Calabresa');
-                break;
 
-            case '2':
-                sabor.saborPizza.push('4 Queijos');
-                break;
+    switch (escolha1) {
+        case '1':
+            sabor.saborPizza.push('Calabresa');
 
-            case '3':
-                sabor.saborPizza.push('Frango com catupiry');
-                break;
+            break;
 
-            case '4':
-                sabor.saborPizza.push('Portuguesa');
-                break;
+        case '2':
+            sabor.saborPizza.push('4 Queijos');
 
-            case '5':
-                sabor.saborPizza.push('Camarão');
-                break;
-            case '6':
-                sabor.saborPizza.push('Carne Seca');
-                break;
-            case '7':
-                sabor.saborPizza.push('Lombo Canadense');
-                break;
-            case '8':
-                sabor.saborPizza.push('X Fritas');
-                break;
+            break;
 
-            default:
-                alert("Essa opção não é válida.");
-                escolherSabor();
-        }
+        case '3':
+            sabor.saborPizza.push('Frango com catupiry');
+
+            break;
+
+        case '4':
+            sabor.saborPizza.push('Portuguesa');
+
+            break;
+
+        case '5':
+            sabor.saborPizza.push('Camarão');
+
+            break;
+        case '6':
+            sabor.saborPizza.push('Carne Seca');
+
+            break;
+        case '7':
+            sabor.saborPizza.push('Lombo Canadense');
+
+            break;
+        case '8':
+            sabor.saborPizza.push('X Fritas');
+
+            break;
+
+        default:
+            alert("Essa opção não é válida.");
+            escolherSabor();
     }
-
-        let escolha2 = prompt('Deseja escolher mais um sabor? sim ou não').toLowerCase() 
-        if (escolha2 == 'sim' && contador < 2) {            
-            contador++;
-            escolherSabor();
-        }
-
-        if(sabor.saborPizza[0] == sabor.saborPizza[1]){
-            alert('Você escolheu o mesmo sabor.')
-            sabor.saborPizza.pop();
-            escolherSabor();
-        }
     
+    
+}
+
+// ORGANIZAR ESSA PARTE DO CÓDIGO
+pedido.push(sabor); 
+let escolha2 = prompt('Deseja escolher mais um sabor? sim ou não').toLowerCase()
+if (escolha2 == 'sim' && contador < 2) {
+    contador++;
+    escolherSabor();      
+}
+
+if(sabor.saborPizza[0] == sabor.saborPizza[1]){
+    alert('Você escolheu o mesmo sabor.')
+    sabor.saborPizza.pop();
+    escolherSabor();
+}
+
 
 
 /*
