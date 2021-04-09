@@ -11,13 +11,16 @@ let pedido ={
     id: undefined
 };
 
-const div = document.querySelector('.resultado');
+const novoPedido = document.querySelector('#novo-pedido');
+const resultado = document.querySelector('.resultado');
+const btn = document.querySelector('#btn');
 
-let pessoa = {nome: '', celular:'', rua: '', numero: '', complemento:'', bairro:'', pontoReferencia: ''}
+let pessoa = {nome: '', celular:'', rua: '', numero: '', complemento:'', bairro:'', pontoReferencia: ''};
 
 var contador = 0;
 
-function init(){    
+function init(){  
+     
     escolherTamanho();
     escolherBorda();
     escolherSabor();
@@ -54,10 +57,6 @@ function escolherTamanho() {
     }
 }
 
-
-
-// FUNÇÕES:
-
 function escolherBorda() {    
 
     let escolha = prompt('Escolha a borda da pizza: \n\n1 - Gorgonzola  - R$10,00  \n2 - Provolone  - R$8,00   \n3 - Catupiry  - R$5,00  \n4 - Cheddar - R$5,00 \n5 - Sem borda  - R$0,00');
@@ -93,7 +92,6 @@ function escolherSabor() {
     }   
 }
 
-//REVISAR
 function escolherSegundoSabor(){
    
     let escolha2 = prompt('Deseja escolher mais um sabor? \n\n 1 - SIM\n 2 - NÃO').toLowerCase()
@@ -106,10 +104,8 @@ function escolherSegundoSabor(){
         alert('Você escolheu o mesmo sabor...vamos tentar novamente?')
         pedido.sabor.pop();
         escolherSegundoSabor();
-    }
-    
+    }    
 }
-
 
 function escolherBebida (){
     let escolha = prompt('Escolha a bebida que você deseja: \n\n1 - Coca-Cola  - R$12,00  \n2 - Fanta  - R$10,00   \n3 - Guaraná Antarctica  - R$10,00  \n4 - H20  - R$8,00  \n5 - Del Valle  - R$7,00  \n6 - Sem bebida');
@@ -124,7 +120,6 @@ function escolherBebida (){
             alert("Desculpe, mas esta opção não é válida.");
             escolherBebida();
     }
-
 }
 
 function escolhaEntrega(){
@@ -152,7 +147,9 @@ function confirmarPedido(){
             escreverNaTela();
             break;
         case '2':
-            criandoHtml(`Você poderá reiniciar o seu pedido a qualquer momento clicando no botão acima.`, 'paragrafo1');           
+            criandoHtml(`Você poderá reiniciar o seu pedido a qualquer momento atualizando o navegador.`, 'paragrafo1');
+            novoPedido.removeChild(btn);  
+                      
             break;
         default:
             alert("Desculpe, mas esta opção não é válida.");
@@ -210,37 +207,40 @@ function alertaTempoEntrega(){
     alert(`Sr(a). ${pessoa.nome}, agradecemos pela preferência! O número do seu pedido é: ${pedido.id}. O prazo de entrega é de 90 minutos.`)
 }
 
-function escreverNaTela(){
-
+function escreverNaTela(){    
+     
     criandoHtml(`${pessoa.nome}`, 'paragrafo1');
     criandoHtml(`ID ${pedido.id}`, 'paragrafo1');
     criandoHtml(`Sabor: ${pedido.sabor.join(' e ')}`, 'paragrafo2');
     criandoHtml(`Tamanho: ${pedido.tamanho.descricao}`, 'paragrafo2');
     criandoHtml(`Borda: ${pedido.borda.descricao}`, 'paragrafo2');
     criandoHtml(`Bebida: ${pedido.bebida.descricao}`, 'paragrafo2');
+    criandoHtml(`Valor: ${aplicarMascaraParaRealComPrefixo(pedido.valorTotal)}`, 'paragrafo2');
     criandoHtml(`Rua: ${pessoa.rua} | Telefone:${pessoa.celular} | Número:${pessoa.numero}`, 'paragrafo2');
     criandoHtml(`Complemento: ${pessoa.complemento} | Bairro: ${pessoa.bairro}  |  Ponto de referência: ${pessoa.pontoReferencia}`, 'paragrafo2');     
     criandoHtml(`Forma de Pagamento: ${pedido.pagamento.descricao}`, 'paragrafo2');
     criandoHtml(`Troco: ${aplicarMascaraParaRealComPrefixo(pedido.pagamento.troco)}`, 'paragrafo2');    
     criandoHtml(`Sr(a). ${pessoa.nome.toUpperCase()}, a WEB PIZZAS agradece pela preferência! O prazo de entrega é de 90 minutos.`, 'paragrafo1');
    
-    div.style.border = 'solid white';
+    resultado.style.border = 'solid white';
+    novoPedido.removeChild(btn);     
 
 }
 
 function criandoHtml(mensagem, paragrafo){
     let paragrafo1 = document.createElement('p');
-    let paragrafo2 = document.createElement('p');
+    let paragrafo2 = document.createElement('p');    
     if(paragrafo == 'paragrafo1'){
-        div.appendChild(paragrafo1);
+        resultado.appendChild(paragrafo1);
         paragrafo1.appendChild(document.createTextNode(mensagem));
         paragrafo1.setAttribute('class','paragrafo1');
     }else{
-        div.appendChild(paragrafo2);
+        resultado.appendChild(paragrafo2);
         paragrafo2.appendChild(document.createTextNode(mensagem));   
         paragrafo2.setAttribute('class','paragrafo2');
     }   
     
 }
+
 
 
