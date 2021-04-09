@@ -12,7 +12,7 @@ body{
 }
 div h1{
     font-family: 'Noto Sans JP', sans-serif;
-    margin-top: 20%;
+    margin-top: 5%;
     font-size: 55px;
     font-style: italic;
 }
@@ -40,14 +40,14 @@ p{
 
 .paragrafo1{
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 25px;
     text-align: center;
 }
 
 .paragrafo2{
        
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .paragrafo3{

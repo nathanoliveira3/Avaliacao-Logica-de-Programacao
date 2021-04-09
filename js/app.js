@@ -216,7 +216,7 @@ function escreverNaTela(){
     criandoHtml(`Borda: ${pedido.borda.descricao}`, 'paragrafo2');
     criandoHtml(`Bebida: ${pedido.bebida.descricao}`, 'paragrafo2');
     criandoHtml(`Valor: ${aplicarMascaraParaRealComPrefixo(pedido.valorTotal)}`, 'paragrafo2');
-    criandoHtml(`Rua: ${pessoa.rua} | Telefone:${pessoa.celular} | Número:${pessoa.numero}`, 'paragrafo2');
+    criandoHtml(`Rua: ${pessoa.rua} | Telefone: ${pessoa.celular} | Número: ${pessoa.numero}`, 'paragrafo2');
     criandoHtml(`Complemento: ${pessoa.complemento} | Bairro: ${pessoa.bairro}  |  Ponto de referência: ${pessoa.pontoReferencia}`, 'paragrafo2');     
     criandoHtml(`Forma de Pagamento: ${pedido.pagamento.descricao}`, 'paragrafo2');
     criandoHtml(`Troco: ${aplicarMascaraParaRealComPrefixo(pedido.pagamento.troco)}`, 'paragrafo2');    
